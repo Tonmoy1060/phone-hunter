@@ -67,19 +67,19 @@ const displayDetails = (allData) => {
         <div class="card-body ">
             <h5>Main features</h5>
             <h6>
-                Storage: ${allData.mainFeatures.storage}
+                <b>STORAGE:</b> ${allData.mainFeatures.storage}
             </h6>
             <h6>
-                Display: ${allData.mainFeatures.displaySize}
+                <b>DISPLAY:</b> ${allData.mainFeatures.displaySize}
             </h6>
             <h6>
-                Chipset: ${allData.mainFeatures.chipSet}
+                <b>CHIPSET:</b> ${allData.mainFeatures.chipSet}
             </h6>
             <h6>
-                Memory: ${allData.mainFeatures.memory}
+                <b>MEMORY:</b> ${allData.mainFeatures.memory}
             </h6>
             <h6>
-                sensor: ${allData.mainFeatures.sensors[0]}, ${allData.mainFeatures.sensors[1]}, ${allData.mainFeatures.sensors[2]}, ${allData.mainFeatures.sensors[3]}, ${allData.mainFeatures.sensors[4]}, ${allData.mainFeatures.sensors[5]}
+                <b>SENSOR:</b> ${allData.mainFeatures.sensors[0]}, ${allData.mainFeatures.sensors[1]}, ${allData.mainFeatures.sensors[2]}, ${allData.mainFeatures.sensors[3]}, ${allData.mainFeatures.sensors[4]}, ${allData.mainFeatures.sensors[5]}
             </h6>
         </div>
       </div>
@@ -89,22 +89,22 @@ const displayDetails = (allData) => {
         <div class="card-body ">
             <h5>Other's</h5>           
     <h6>
-        Bluetooth: ${allData.others.Bluetooth}
+        <b>BLUETOOTH:</b> ${allData.others.Bluetooth}
     </h6>
     <h6>
-        GPS: ${allData.others.GPS}
+        <b>GPS:</b> ${allData.others.GPS}
     </h6>
     <h6>
-        NFC: ${allData.others.NFC}
+        <b>NFC:</b> ${allData.others.NFC}
     </h6>
     <h6>
-        Radio:  ${allData.others.Radio}
+        <b>RADIO:</b>  ${allData.others.Radio}
     </h6>
     <h6>
-        USB: ${allData.others.USB}
+        <b>USB:</b> ${allData.others.USB}
     </h6>
     <h6>
-        WLAN: ${allData.others.WLAN}
+        <b>WLAN:</b> ${allData.others.WLAN}
     </h6>
         </div>
       </div>
