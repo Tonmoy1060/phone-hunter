@@ -1,13 +1,26 @@
 const inputPhoneButon = () => {
+    document.getElementById('cards').innerHTML = '';
     const searchBox = document.getElementById('search-input').value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchBox}`;
     console.log(url);
     fetch(url)
     .then(res => res.json())
-    .then(data =>  phoneList(data.data));
+    // .then(data =>  phoneList(data.data));
+    .then(data =>  {
+        console.log(data.data.length)
+        if(data.data.length == 0){
+            phoneList2(data.data)
+            
+        }
+        else{
+            phoneList(data.data)
+        }
+    });
+    document.getElementById('search-input').value = '';
 }
 const phoneList = (phones) => {
-    for (let phone of phones){
+    const topPhones = phones.slice(0, 20);
+    for (let phone of topPhones){
         const allCards = document.getElementById('cards');
         const div = document.createElement('div');
         div.classList.add("col-md-4")
@@ -28,6 +41,100 @@ const phoneList = (phones) => {
 
     }
 }
+const phoneList2 = () => {
+        const allCards = document.getElementById('cards');
+        const div = document.createElement('div');
+        div.innerHTML = `
+            
+                    <h4 class="text-center w-50 mx-auto text-danger p-1 rounded bg-black"> Search With Correct Name </h4>
+        `;
+        allCards.appendChild(div);
+}
 const phoneDetails = (id) => {
-    console.log(id)
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayDetails(data.data));
+}
+const displayDetails = (allData) => { 
+    const phoneDetails = document.getElementById('details');
+    const phoneFeatures = document.getElementById('mainFeatures');
+    // const phoneOthers = document.getElementById('others');
+    phoneFeatures.innerHTML = `
+    <div class="row row-cols-1 row-cols-md-2 g-4 p-4 m-4">
+    <div class="col ">
+      <div class="card">
+        <div class="card-body ">
+            <h5>Main features</h5>
+            <h6>
+                Storage: ${allData.mainFeatures.chipSet}
+            </h6>
+            <h6>
+                Display: ${allData.mainFeatures.displaySize}
+            </h6>
+            <h6>
+                Chipset: ${allData.mainFeatures.memory}
+            </h6>
+            <h6>
+                Memory: ${allData.mainFeatures.storage}
+            </h6>
+            <h6>
+                sensor: ${allData.mainFeatures.storage}
+            </h6>
+        </div>
+      </div>
+    </div>
+    <div class="col ">
+      <div class="card">
+        <div class="card-body ">
+            <h5>Other's</h5>           
+    <h6>
+        Bluetooth: ${allData.others.Bluetooth}
+    </h6>
+    <h6>
+        GPS: ${allData.others.GPS}
+    </h6>
+    <h6>
+        NFC: ${allData.others.NFC}
+    </h6>
+    <h6>
+        Radio:  ${allData.others.Radio}
+    </h6>
+    <h6>
+        USB: ${allData.others.USB}
+    </h6>
+    <h6>
+        WLAN: ${allData.others.WLAN}
+    </h6>
+        </div>
+      </div>
+    </div>
+</div>
+    `;
+    // phoneOthers.innerHTML = `
+            
+    // `;
+    phoneDetails.innerHTML = `
+    <div class="card mx-2 mt-2 p-4 h-100" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-5">
+              <img src="${allData.image}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                  <h1>
+                      ${allData.brand}
+                  </h1>
+                  <h3>
+                      ${allData.name}
+                  </h3>
+                  <h5 class="py-2">
+                      Release: ${allData.releaseDate}
+                  </h5>
+              </div>
+            </div>
+        </div>
+    </div>
+    `;
+    // putDetails.appendChild(div);
 }
