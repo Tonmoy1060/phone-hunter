@@ -1,11 +1,13 @@
+// take input button 
 const inputPhoneButon = () => {
     document.getElementById('cards').innerHTML = '';
+    document.getElementById('details').innerHTML = '';
+    document.getElementById('mainFeatures').innerHTML = '';
     const searchBox = document.getElementById('search-input').value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchBox}`;
     console.log(url);
     fetch(url)
     .then(res => res.json())
-    // .then(data =>  phoneList(data.data));
     .then(data =>  {
         console.log(data.data.length)
         if(data.data.length == 0){
@@ -18,6 +20,7 @@ const inputPhoneButon = () => {
     });
     document.getElementById('search-input').value = '';
 }
+// all phone show
 const phoneList = (phones) => {
     const topPhones = phones.slice(0, 20);
     for (let phone of topPhones){
@@ -25,7 +28,6 @@ const phoneList = (phones) => {
         const div = document.createElement('div');
         div.classList.add("col-md-4")
         div.innerHTML = `
-            
                     <div class="card h-100">
                         <img class="w-50" src="${phone.image}" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -41,6 +43,7 @@ const phoneList = (phones) => {
 
     }
 }
+// phone notfound part
 const phoneList2 = () => {
         const allCards = document.getElementById('cards');
         const div = document.createElement('div');
@@ -50,12 +53,14 @@ const phoneList2 = () => {
         `;
         allCards.appendChild(div);
 }
+// get phones id
 const phoneDetails = (id) => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
     .then(res => res.json())
     .then(data => displayDetails(data.data));
 }
+// show phone details
 const displayDetails = (allData) => { 
     const phoneDetails = document.getElementById('details');
     const phoneFeatures = document.getElementById('mainFeatures');
@@ -133,5 +138,4 @@ const displayDetails = (allData) => {
         </div>
     </div>
     `;
-    // putDetails.appendChild(div);
 }
