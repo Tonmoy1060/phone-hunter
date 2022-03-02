@@ -61,11 +61,11 @@ const displayDetails = (allData) => {
     const phoneFeatures = document.getElementById('mainFeatures');
     // const phoneOthers = document.getElementById('others');
     phoneFeatures.innerHTML = `
-    <div class="row row-cols-1 row-cols-md-2 g-4 p-4 m-4">
+    <div class="row row-cols-1 row-cols-md-2 g-4 p-4 my-4 mb-4">
     <div class="col ">
       <div class="card">
         <div class="card-body ">
-            <h5>Main features</h5>
+            <h4><b>Main features</b></h4>
             <h6>
                 <b>STORAGE:</b> ${allData.mainFeatures.storage}
             </h6>
@@ -87,7 +87,7 @@ const displayDetails = (allData) => {
     <div class="col ">
       <div class="card">
         <div class="card-body ">
-            <h5>Other's</h5>           
+            <h4><b>Other's</b></h4>           
     <h6>
         <b>BLUETOOTH:</b> ${allData.others.Bluetooth}
     </h6>
@@ -111,11 +111,8 @@ const displayDetails = (allData) => {
     </div>
 </div>
     `;
-    // phoneOthers.innerHTML = `
-            
-    // `;
     phoneDetails.innerHTML = `
-    <div class="card mx-2 mt-2 p-4 h-100" style="max-width: 540px;">
+    <div class="card ms-5 mt-4 p-3 h-100" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-5">
               <img src="${allData.image}" class="img-fluid rounded-start" alt="...">
