@@ -67,19 +67,19 @@ const displayDetails = (allData) => {
         <div class="card-body ">
             <h5>Main features</h5>
             <h6>
-                Storage: ${allData.mainFeatures.chipSet}
+                Storage: ${allData.mainFeatures.storage}
             </h6>
             <h6>
                 Display: ${allData.mainFeatures.displaySize}
             </h6>
             <h6>
-                Chipset: ${allData.mainFeatures.memory}
+                Chipset: ${allData.mainFeatures.chipSet}
             </h6>
             <h6>
-                Memory: ${allData.mainFeatures.storage}
+                Memory: ${allData.mainFeatures.memory}
             </h6>
             <h6>
-                sensor: ${allData.mainFeatures.storage}
+                sensor: ${allData.mainFeatures.sensors[0]}, ${allData.mainFeatures.sensors[1]}, ${allData.mainFeatures.sensors[2]}, ${allData.mainFeatures.sensors[3]}, ${allData.mainFeatures.sensors[4]}, ${allData.mainFeatures.sensors[5]}
             </h6>
         </div>
       </div>
